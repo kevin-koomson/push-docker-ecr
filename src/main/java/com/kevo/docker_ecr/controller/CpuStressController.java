@@ -8,9 +8,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.random.RandomGenerator;
 
 @Controller
 @RequestMapping("/stress-test")
@@ -23,6 +25,7 @@ public class CpuStressController {
     );
     private final Runtime runtime = Runtime.getRuntime();
     public static final String stressTestRedirect = "redirect:/stress-test";
+    public static final int instanceId = (int) (Math.random() * 10) + 1;
 
     @GetMapping
     public String showStressTestPage(Model model) {
@@ -125,6 +128,7 @@ public class CpuStressController {
         model.addAttribute("maxMemory", runtime.maxMemory() / (1024 * 1024)); // MB
         model.addAttribute("freeMemory", runtime.freeMemory() / (1024 * 1024)); // MB
         model.addAttribute("totalMemory", runtime.totalMemory() / (1024 * 1024)); // MB
+        model.addAttribute("instanceId", instanceId);
     }
 
     @PreDestroy
