@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .emoji {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        p {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(238, 90, 36, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(238, 90, 36, 0.4);
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .stress-test-section {
+            border-left: 4px solid #ffc107;
+        }
+
+        .stress-test-section .card-header {
+            background-color: #fff3cd;
+            border-bottom: 1px solid #ffeaa7;
+        }
+
+        .stress-test-section .btn-warning {
+            background-color: #ffc107;
+            border-color: #ffc107;
+            transition: all 0.3s ease;
+        }
+
+        .stress-test-section .btn-warning:hover {
+            background-color: #e0a800;
+            border-color: #d39e00;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+<div class="container floating">
+    <span class="emoji">🌟</span>
+    <h1>Hello there!</h1>
+    <p>Welcome to an ECS Fargate deployed application.
+        Click the button below to explore!</p>
+    <a href="/welcome" class="btn">Let's Go!</a>
+</div>
+<div class="stress-test-section card mb-4">
+    <div class="card-header">
+        <h5 class="mb-0">
+            <i class="fas fa-tachometer-alt"></i> System Performance Testing
+        </h5>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            Access CPU stress testing tools to simulate load and monitor system performance.
+        </p>
+        <a href="/stress-test" class="btn btn-warning">
+            <i class="fas fa-cog"></i> Open Stress Test Controls
+        </a>
+    </div>
+</div>
+</body>
+</html>
